@@ -6,3 +6,5 @@
 // player->waitMove();
 
 // then players switch
+
+// que<command> of commands which call api methods with same signature => int nameOfMethod(jsonData);

@@ -44,14 +44,26 @@ int Map::setPointValue(int x, int y, Point type) {
     }
     auto bitMapPair{ std::begin(yLevelDequeBitMap->second) + X - yLevelDequeBitMap->first.first }; // iterator on x bitMap pair
     auto newPoint{ getNewPointBitMap(x, y) };
+    /* MOVED TO ENGINE, BECAUSE IT'S LOGIC
+
     if (newPoint & bitMapPair->first && type == Point::Cross || newPoint & bitMapPair->second && type == Point::Zero)
         return 1;
     if (newPoint & bitMapPair->first & bitMapPair->second)
         return 2;
-    if (type == Point::Cross)
+
+    */
+    if (type == Point::Cross) {
+        bitMapPair->second &= ~newPoint;
         bitMapPair->first |= newPoint;
-    else
+    }
+    else if (type == Point::Zero) {
+        bitMapPair->first &= ~newPoint;
         bitMapPair->second |= newPoint;
+    }
+    else {
+        bitMapPair->first &= ~newPoint;
+        bitMapPair->second &= ~newPoint;
+    }
     return 0;
 }
 

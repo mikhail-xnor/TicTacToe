@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 3.16)
 
 set(SOURCES test_setup.h
 	test_setup.cpp
-	test_map.cpp)
+	test_map.cpp
+	test_engine.cpp)
 
 enable_testing()
 

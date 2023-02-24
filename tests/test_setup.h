@@ -9,3 +9,5 @@
     ASSERT_EXIT({{ statement } ::exit(EXIT_SUCCESS); }, ::testing::ExitedWithCode(0), "")
 
 using namespace TicTacToe;
+
+extern bool SKIP_TESTS;
