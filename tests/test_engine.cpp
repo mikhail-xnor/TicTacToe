@@ -14,12 +14,69 @@ TEST(testEngine, testBase) {
             engine.move(0, -i);
             engine.move(4 - i, 0);
         }
+        EXPECT_NE(engine.move(-1, 0), 0);
 
         EXPECT_EQ(engine.getCurrentState(), Point::Zero);
         EXPECT_EQ(engine.getGameStatus(), GameStatus::Finish);
 
         if (HasFailure())
             SKIP_TESTS = true;
+    }
+}
+
+TEST(testEngine, testVerticalWin) {
+    if (!SKIP_TESTS) {
+        Engine engine;
+
+        for (auto i = 0; i != 4; ++i) {
+            engine.move(0, -i);
+            engine.move(4 - i, 0);
+        }
+        engine.move(0, -4);
+        EXPECT_NE(engine.move(0, 0), 0);
+        EXPECT_NE(engine.move(-1, 0), 0);
+    }
+}
+
+TEST(testEngine, testMainDiagWin) {
+    if (!SKIP_TESTS) {
+        Engine engine;
+
+        for (auto i = 0; i != 4; ++i) {
+            engine.move(-i, -i);
+            engine.move(4 - i, 0);
+        }
+        engine.move(-4, -4);
+        EXPECT_NE(engine.move(0, 0), 0);
+        EXPECT_NE(engine.move(-1, 0), 0);
+    }
+}
+
+TEST(testEngine, testHorizontalWin) {
+    if (!SKIP_TESTS) {
+        Engine engine;
+
+        for (auto i = 0; i != 4; ++i) {
+            engine.move(-i, 0);
+            engine.move(-i, -1);
+        }
+        engine.move(-4, 0);
+        EXPECT_NE(engine.move(0, -1), 0);
+        EXPECT_NE(engine.move(-4, -1), 0);
+    }
+}
+
+TEST(testEngine, testSecondaryDiagWin) {
+    if (!SKIP_TESTS) {
+        Engine engine;
+
+        for (auto i = 0; i != 4; ++i) {
+            engine.move(-i, i);
+            engine.move(4 - i, 0);
+        }
+        engine.move(-4, 4);
+        EXPECT_NE(engine.move(0, 0), 0);
+        EXPECT_NE(engine.move(-1, 0), 0);
     }
 }
 

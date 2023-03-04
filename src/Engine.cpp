@@ -36,7 +36,7 @@ GameStatus Engine::checkGameStatus(const int x, const int y, const Point &currSt
     countEntryInLine += countEntryInDirection(x, y, 1, 0, currState);
     countEntryInLine += countEntryInDirection(x, y, -1, 0, currState);
     if (countEntryInLine >= lineCountToWin) return GameStatus::Finish;
-    // check main diag direction
+    // check secondary diag direction
     countEntryInLine = 1;
     countEntryInLine += countEntryInDirection(x, y, 1, -1, currState);
     countEntryInLine += countEntryInDirection(x, y, -1, 1, currState);
