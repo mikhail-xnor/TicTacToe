@@ -5,7 +5,7 @@ namespace TicTacToe {
 
 enum class Point { Empty, Cross, Zero };
 
-// TODO: class Dot(x, y) ???
+// TODO: class Pos(x, y) ??? 
 
 class Map {
     std::deque<std::pair<std::pair<int, int>, std::deque<std::pair<uint64_t, uint64_t>>>> map; 

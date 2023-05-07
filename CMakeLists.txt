@@ -36,10 +36,10 @@ set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)  
 set(Boost_USE_STATIC_RUNTIME OFF) 
 
-find_package(Boost 1.79.0 QUIET COMPONENTS system thread filesystem json chrono)
+find_package(Boost 1.80.0 QUIET COMPONENTS json) # chrono system thread filesystem
 if(NOT Boost_FOUND)
     set(Boost_USE_STATIC_LIBS OFF) 
-    find_package(Boost 1.79.0 REQUIRED COMPONENTS system thread filesystem json chrono)
+    find_package(Boost 1.80.0 REQUIRED COMPONENTS json) # chrono system thread filesystem
     message( WARNING "The library and module will get the required boost dependency! "
         "Not found static boost libs, and used shared libs!" )
 endif()
@@ -47,6 +47,7 @@ endif()
 set(TESTS_NAME tictactoe_tests)
 set(LIBRARY_NAME tictactoe_lib)
 
+add_subdirectory(external/jwt-cpp)
 add_subdirectory(src/)
 add_subdirectory(tests/)
 

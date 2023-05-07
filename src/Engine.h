@@ -1,10 +1,10 @@
 #include "Map.h"
-#include "Player.h"
 
 namespace TicTacToe {
 
 enum class GameStatus { Play, Finish };
 
+/* TODO: remove
 class EngineSnapshot
 {
     Map map;
@@ -16,6 +16,7 @@ public:
     auto getNextState() const { return nextState; }
     auto getStatus() const { return status; }
 };
+*/
 
 class Engine {
     Map map;
@@ -37,11 +38,7 @@ public:
 
     Point getCurrentState() const { return nextState; }
 
-    Point getPointValue(int x, int y) { return map.getPointValue(x, y); }
-
-    //int resotore();
-
-    //int createSnapshot() const;
+    Point getPointValue(int x, int y) const { return map.getPointValue(x, y); }
 };
 
 }

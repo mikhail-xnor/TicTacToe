@@ -23,4 +23,4 @@ target_link_libraries(${LIBRARY_NAME} PRIVATE ${Boost_LIBRARIES})
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE ${LIBRARY_NAME})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${LIBRARY_NAME} jwt-cpp)
